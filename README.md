@@ -9,6 +9,6 @@ which are then automatically executed consecutively.
 
 ![](/images/Interface1.png)
 
-![](/images/Preset1.png)
+![Enter a list of commands to execute](/images/Preset1.png)
 
-![](/images/Preset Remove.png)
+![Easily remove a command at any positon in the list](/images/Preset Remove.png)
