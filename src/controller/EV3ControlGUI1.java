@@ -55,9 +55,6 @@ import javax.swing.ImageIcon;
 
 public class EV3ControlGUI1 extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	// list used to store instructions provided by user in a 'Preset' situation
