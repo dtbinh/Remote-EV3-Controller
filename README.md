@@ -10,7 +10,9 @@ which are then automatically executed consecutively.
 ![](/images/Interface1.png)
 
 In 'Preset' mode, enter a list of commands to execute.
+<br>
 ![](/images/Preset1.png)
 
 Easily remove a command at any positon in the list.
+<br>
 ![](/images/Preset Remove.png)
