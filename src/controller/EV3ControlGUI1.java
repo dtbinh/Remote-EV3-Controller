@@ -65,7 +65,7 @@ public class EV3ControlGUI1 extends JFrame {
 	/**
 	 * Launch the application.
 	 */	
-	static final String IP = "192.168.1.149";
+	static String IP;
 	private JTextField txtDistance;
 	private JTextField txtDegrees;
 
@@ -77,6 +77,10 @@ public class EV3ControlGUI1 extends JFrame {
 				try {
 					EV3ControlGUI1 frame = new EV3ControlGUI1();
 					frame.setVisible(true);
+					IP = JOptionPane.showInputDialog(frame, "Enter IP address of robot: ", "IP Address", 1);
+					if (IP == null) {
+						System.exit(DO_NOTHING_ON_CLOSE);
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -311,7 +315,7 @@ public class EV3ControlGUI1 extends JFrame {
 		JLabel lblDegrees = new JLabel("Degrees:");
 		lblDegrees.setBounds(139, 11, 70, 14);
 		contentPane.add(lblDegrees);
-
+		
 	}
 
 	
