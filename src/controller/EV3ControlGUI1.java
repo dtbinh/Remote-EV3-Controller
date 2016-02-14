@@ -65,7 +65,7 @@ public class EV3ControlGUI1 extends JFrame {
 	/**
 	 * Launch the application.
 	 */	
-	static final String IP = "192.168.1.149";
+	static String IP;
 	private JTextField txtDistance;
 	private JTextField txtDegrees;
 
@@ -77,6 +77,20 @@ public class EV3ControlGUI1 extends JFrame {
 				try {
 					EV3ControlGUI1 frame = new EV3ControlGUI1();
 					frame.setVisible(true);
+
+					IP = JOptionPane.showInputDialog(frame, "Enter IP address of robot: ", "IP Address", 1);
+					
+					// ensures inputted string's length is within the bounds of the smallest possible
+					//    IP address (0.0.0.0) and the largest possible IP address (255.255.255.255)
+					while (IP != null && (IP.length() < 7 || IP.length() > 15)) {
+						JOptionPane.showMessageDialog(frame, "Please enter a valid IP Address of the form: X.X.X.X", "Invalid IP Address", 2);
+						IP = JOptionPane.showInputDialog(frame, "Enter IP address of robot: ", "IP Address", 1);
+					}
+					
+					// closes program if user does not input an IP address
+					if (IP == null) {
+						System.exit(DO_NOTHING_ON_CLOSE);
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -314,7 +328,7 @@ public class EV3ControlGUI1 extends JFrame {
 
 	}
 
-	
+
 	/**
 	 * Moves the EV3 forward in a straight line.
 	 * @param dist The distance in cm to travel forward.
@@ -345,8 +359,8 @@ public class EV3ControlGUI1 extends JFrame {
 		}
 		socket.close();
 	}
-	
-	
+
+
 	/**
 	 * Moves the EV3 backwards in a straight line.
 	 * @param dist The distance in cm to travel backward.
@@ -376,8 +390,8 @@ public class EV3ControlGUI1 extends JFrame {
 		}
 		socket.close();
 	}
-	
-	
+
+
 	/**
 	 * Rotates the EV3 an angle right (clockwise).
 	 * @param degrees The angle in degrees to rotate.
